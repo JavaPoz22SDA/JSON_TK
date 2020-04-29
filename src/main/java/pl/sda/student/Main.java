@@ -27,14 +27,22 @@ public class Main {
             while (true) {
                 switch ((String) menu.showAndGetSelected()) {
                     case NEW:
-                        Student s = new Student();
+                        Student sNew = new Student();
+                        System.out.println("Dodawanie nowego studenta do listy.");
                         System.out.print("Podaj imię: ");
-                        s.setFirstName(scanner.nextLine());
+                        sNew.setFirstName(scanner.nextLine().trim());
                         System.out.print("Podaj nazwisko: ");
-                        s.setLastName(scanner.nextLine());
-                        studentsManager.addStudent(s);
+                        sNew.setLastName(scanner.nextLine().trim());
+                        studentsManager.addStudent(sNew);
                         break;
                     case DEL:
+                        Student sDel = new Student();
+                        System.out.println("Usuwanie studenta z listy.");
+                        System.out.print("Podaj imię: ");
+                        sDel.setFirstName(scanner.nextLine().trim());
+                        System.out.print("Podaj nazwisko: ");
+                        sDel.setLastName(scanner.nextLine().trim());
+                        System.out.println(studentsManager.delStudent(sDel));
                         break;
                     case DISPLAY:
                         System.out.println("Lista studentów: ");

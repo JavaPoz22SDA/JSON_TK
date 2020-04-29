@@ -1,5 +1,7 @@
 package pl.sda.student;
 
+import java.util.Objects;
+
 public class Student {
     private String firstName;
     private String lastName;
@@ -29,5 +31,19 @@ public class Student {
     @Override
     public String toString() {
         return firstName + " " + lastName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Student)) return false;
+        Student student = (Student) o;
+        return getFirstName().equals(student.getFirstName()) &&
+                getLastName().equals(student.getLastName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getFirstName(), getLastName());
     }
 }
