@@ -24,7 +24,7 @@ public class Main {
         List<Student> students = new ArrayList<>();
         try {
 
-            while (true)
+            while (true) {
                 switch ((String) menu.showAndGetSelected()) {
                     case NEW:
                         Student s = new Student();
@@ -37,6 +37,8 @@ public class Main {
                     case DEL:
                         break;
                     case DISPLAY:
+                        System.out.println("Lista studentów: ");
+                        studentsManager.displayStudents();
                         break;
                     case SAVE:
                         break;
@@ -45,7 +47,8 @@ public class Main {
                     default:
                         System.out.println("Nieprawidlowy wybor!");
                 }
-
+                System.out.println();
+            }
         } catch (IndexOutOfBoundsException ex) {
             System.out.println("Nieprawidłowy wybór!\nKoniec programu!!!");
         }

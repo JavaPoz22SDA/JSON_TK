@@ -6,10 +6,10 @@ import java.util.List;
 public class StudentsManager {
 
     private String name;
-    List<Student> students = new ArrayList<>();
+    private List<Student> students = new ArrayList<>();
 
     public void addStudent(Student s){
-
+        students.add(s);
     }
 
     public void delStudent(String firsName, String lastName){
@@ -17,12 +17,14 @@ public class StudentsManager {
 
     }
 
-    public void displayStudents(List<Student> studentList){
-
+    public void displayStudents(){
+        for (Student s:students) {
+            System.out.println("  - " + s.toString());
+        }
 
     }
 
-    public void saveToFile(List<Student> studentList){
+    public void saveToFile(){
 
 
     }
