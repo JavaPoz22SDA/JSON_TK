@@ -2,6 +2,7 @@ package pl.sda.student;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     final static String NEW = "Dodaj studenta na listę";
@@ -11,6 +12,8 @@ public class Main {
     final static String EXIT = "Zakończ program";
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        StudentsManager studentsManager = new StudentsManager();
         Menu menu = new Menu<String>();
         menu.add(NEW);
         menu.add(DEL);
@@ -21,23 +24,29 @@ public class Main {
         List<Student> students = new ArrayList<>();
         try {
 
-            switch ((String) menu.showAndGetSelected()){
-                case NEW:
-                    break;
-                case DEL:
-                    break;
-                case DISPLAY:
-                    break;
-                case SAVE:
-                    break;
-                case EXIT:
-                    System.exit(0);
-                default:
-                    System.out.println("Nieprawidlowy wybor!");
-            }
+            while (true)
+                switch ((String) menu.showAndGetSelected()) {
+                    case NEW:
+                        Student s = new Student();
+                        System.out.print("Podaj imię: ");
+                        s.setFirstName(scanner.nextLine());
+                        System.out.print("Podaj nazwisko: ");
+                        s.setLastName(scanner.nextLine());
+                        studentsManager.addStudent(s);
+                        break;
+                    case DEL:
+                        break;
+                    case DISPLAY:
+                        break;
+                    case SAVE:
+                        break;
+                    case EXIT:
+                        System.exit(0);
+                    default:
+                        System.out.println("Nieprawidlowy wybor!");
+                }
 
-        }
-        catch (IndexOutOfBoundsException ex){
+        } catch (IndexOutOfBoundsException ex) {
             System.out.println("Nieprawidłowy wybór!\nKoniec programu!!!");
         }
 

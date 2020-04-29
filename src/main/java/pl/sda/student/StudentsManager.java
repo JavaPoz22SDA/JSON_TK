@@ -1,10 +1,12 @@
 package pl.sda.student;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class Event {
+public class StudentsManager {
 
     private String name;
+    List<Student> students = new ArrayList<>();
 
     public void addStudent(Student s){
 
