@@ -23,6 +23,7 @@ public class Main {
 
         List<Student> students = new ArrayList<>();
         try {
+            System.out.println(studentsManager.readFromFile());
 
             while (true) {
                 switch ((String) menu.showAndGetSelected()) {
@@ -33,8 +34,7 @@ public class Main {
                         sNew.setFirstName(scanner.nextLine().trim());
                         System.out.print("Podaj nazwisko: ");
                         sNew.setLastName(scanner.nextLine().trim());
-                        studentsManager.addStudent(sNew);
-                        System.out.println("Dodano studenta do listy!");
+                        System.out.println(studentsManager.addStudent(sNew));
                         break;
                     case DEL:
                         Student sDel = new Student();
@@ -46,12 +46,10 @@ public class Main {
                         System.out.println(studentsManager.delStudent(sDel));
                         break;
                     case DISPLAY:
-                        System.out.println("Lista studentów: ");
-                        studentsManager.displayStudents();
+                        System.out.println(studentsManager.displayStudents());
                         break;
                     case SAVE:
-                        studentsManager.saveToFile();
-                        System.out.println("Zapisano do pliku!");
+                        System.out.println(studentsManager.saveToFile());
                         break;
                     case EXIT:
                         System.exit(0);
