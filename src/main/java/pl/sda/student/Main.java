@@ -34,6 +34,7 @@ public class Main {
                         System.out.print("Podaj nazwisko: ");
                         sNew.setLastName(scanner.nextLine().trim());
                         studentsManager.addStudent(sNew);
+                        System.out.println("Dodano studenta do listy!");
                         break;
                     case DEL:
                         Student sDel = new Student();
@@ -49,6 +50,8 @@ public class Main {
                         studentsManager.displayStudents();
                         break;
                     case SAVE:
+                        studentsManager.saveToFile();
+                        System.out.println("Zapisano do pliku!");
                         break;
                     case EXIT:
                         System.exit(0);

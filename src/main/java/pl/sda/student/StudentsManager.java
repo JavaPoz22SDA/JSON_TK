@@ -1,5 +1,8 @@
 package pl.sda.student;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +30,21 @@ public class StudentsManager {
     }
 
     public void saveToFile() {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        ObjectMapper mapper = new ObjectMapper();
 
+        try {
+            mapper.writeValue(outputStream, students);
 
+            byte[] data = outputStream.toByteArray();
+
+            FileOutputStream file = new FileOutputStream("Students.txt");
+            file.write(data);
+            file.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 }
